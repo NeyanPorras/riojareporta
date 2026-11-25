@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>RiojaReporta — Wireframes de baja fidelidad</title>
+<style>
+  @page { size: A4 landscape; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #222; background: #fff; }
+  .page { page-break-after: always; padding: 4px 8px; }
+  .page:last-child { page-break-after: auto; }
+  h1 { font-size: 20px; margin: 0 0 2px; }
+  h2 { font-size: 16px; margin: 0 0 10px; }
+  .sub { font-size: 12px; color: #555; margin: 0 0 12px; }
+  .row { display: flex; gap: 26px; align-items: flex-start; justify-content: center; }
+  .item { display: flex; flex-direction: column; align-items: center; }
+  .cap { font-size: 12px; margin-top: 6px; text-align: center; max-width: 290px; }
+  .cap b { display: block; font-size: 13px; }
+  .nav { color: #666; font-size: 11px; margin-top: 2px; }
+
+  /* Device frames */
+  .phone { width: 270px; height: 540px; border: 2px solid #333; border-radius: 22px; padding: 14px 10px; display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; }
+  .phone.sm { width: 186px; height: 372px; border-radius: 16px; padding: 10px 7px; gap: 6px; font-size: 10px; }
+  .desk { width: 1000px; height: 560px; border: 2px solid #333; border-radius: 6px; display: flex; overflow: hidden; }
+
+  /* Low-fidelity elements */
+  .bar { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #999; padding-bottom: 6px; font-weight: bold; font-size: 13px; }
+  .phone.sm .bar { font-size: 10px; }
+  .btn { border: 1.5px solid #333; border-radius: 6px; padding: 8px; text-align: center; font-size: 12px; background: #eee; }
+  .btn.pri { background: #555; color: #fff; }
+  .btn.sm { padding: 4px 8px; font-size: 11px; display: inline-block; }
+  .phone.sm .btn { padding: 5px; font-size: 10px; }
+  .ph { background: #ddd; border: 1px dashed #888; display: flex; align-items: center; justify-content: center; color: #666; font-size: 11px; text-align: center; }
+  .map { flex: 1; background: repeating-linear-gradient(45deg, #eee, #eee 8px, #e2e2e2 8px, #e2e2e2 16px); border: 1px solid #999; position: relative; }
+  .pin { position: absolute; font-size: 16px; color: #333; }
+  .chips { display: flex; gap: 4px; flex-wrap: wrap; }
+  .chip { border: 1px solid #555; border-radius: 10px; padding: 2px 7px; font-size: 10px; }
+  .chip.on { background: #555; color: #fff; }
+  .line { height: 8px; background: #ccc; border-radius: 3px; }
+  .w60 { width: 60%; } .w80 { width: 80%; } .w40 { width: 40%; }
+  .badge { border: 1px solid #333; border-radius: 3px; padding: 1px 5px; font-size: 10px; display: inline-block; }
+  .tabs { display: flex; border-top: 1px solid #999; margin-top: auto; }
+  .tabs div { flex: 1; text-align: center; font-size: 10px; padding-top: 6px; }
+  .tabs .on { font-weight: bold; text-decoration: underline; }
+  .fab { position: absolute; right: 18px; bottom: 54px; }
+  .list-item { display: flex; gap: 6px; border-bottom: 1px solid #ccc; padding: 5px 0; align-items: center; }
+  .thumb { width: 42px; height: 42px; }
+  .label { font-size: 11px; color: #444; }
+  .input { border: 1px solid #777; border-radius: 4px; padding: 6px; font-size: 11px; color: #777; }
+  .steps { display: flex; gap: 3px; }
+  .steps span { flex: 1; height: 5px; background: #ccc; }
+  .steps span.on { background: #555; }
+  .alert { border: 1.5px dashed #333; padding: 6px; font-size: 10px; background: #f4f4f4; }
+  .tl div { font-size: 10px; border-left: 2px solid #555; padding-left: 6px; margin: 3px 0; }
+
+  /* Desktop layout */
+  .side { width: 190px; border-right: 1px solid #999; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
+  .side .on { font-weight: bold; text-decoration: underline; }
+  .main { flex: 1; padding: 14px 18px; display: flex; flex-direction: column; gap: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { border-bottom: 1px solid #ccc; padding: 6px; text-align: left; }
+  th { border-bottom: 1.5px solid #333; }
+  .filters { display: flex; gap: 10px; align-items: center; font-size: 12px; }
+  .two { display: flex; gap: 16px; flex: 1; }
+  .col { display: flex; flex-direction: column; gap: 8px; }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page">
+  <h1>RiojaReporta — Wireframes de baja fidelidad</h1>
+  <p class="sub">Estructura y navegación de las pantallas aprobadas. Sin colores ni estilo final: el estilo lo define la librería de interfaz durante el desarrollo.</p>
+  <h2>Vecino (celular)</h2>
+  <div class="row">
+    <div class="item">
+      <div class="phone">
+        <div style="flex:1"></div>
+        <div class="ph" style="height:70px">Logo RiojaReporta</div>
+        <div style="text-align:center;font-size:12px">Reportá problemas de tu calle en segundos</div>
+        <div style="flex:1"></div>
+        <div class="btn">Entrar con Google</div>
+        <div class="btn">Entrar con correo electrónico</div>
+        <div style="flex:0.4"></div>
+      </div>
+      <div class="cap"><b>1. Ingreso</b>Igual para todos los roles.<div class="nav">→ Vecino: 2. Mapa · Operador/Admin: 8. Bandeja</div></div>
+    </div>
+    <div class="item">
+      <div class="phone">
+        <div class="bar"><span>RiojaReporta</span><span class="ph" style="width:26px;height:26px;border-radius:50%">👤</span></div>
+        <div class="chips"><span class="chip on">Todos</span><span class="chip">Baches</span><span class="chip">Alumbrado</span><span class="chip">Basurales</span><span class="chip">Poda</span></div>
+        <div class="map">
+          <span class="pin" style="left:30%;top:20%">📍</span><span class="pin" style="left:62%;top:38%">📍</span>
+          <span class="pin" style="left:42%;top:62%">📍</span><span class="pin" style="left:75%;top:72%">📍</span>
+        </div>
+        <div class="btn pri fab">+ Nuevo reclamo</div>
+        <div class="tabs"><div class="on">Mapa</div><div>Mis reclamos</div><div>Perfil</div></div>
+      </div>
+      <div class="cap"><b>2. Mapa (pantalla principal)</b>Reclamos de todos los vecinos, filtrables por categoría.<div class="nav">→ tocar un pin: 3 · botón: 4 · barra inferior: 5 y 7</div></div>
+    </div>
+    <div class="item">
+      <div class="phone">
+        <div class="bar"><span>← Reclamo #128</span></div>
+        <div class="ph" style="height:150px">Fotos (1 a 3, deslizables)</div>
+        <div><span class="badge">Bache</span> <span class="badge">En proceso</span></div>
+        <div class="label">📍 Av. Ortiz de Ocampo y Bolívar</div>
+        <div class="line w80"></div><div class="line w60"></div>
+        <div class="label" style="margin-top:6px"><b>12 vecinos</b> también lo reportaron</div>
+        <div style="flex:1"></div>
+        <div class="btn pri">Yo también</div>
+      </div>
+      <div class="cap"><b>3. Detalle de reclamo</b>Datos públicos del reclamo y adhesión.<div class="nav">← vuelve a 2</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 2 -->
+<div class="page">
+  <h2>4. Nuevo reclamo (en pasos)</h2>
+  <div class="row" style="gap:16px">
+    <div class="item">
+      <div class="phone sm">
+        <div class="bar"><span>← Nuevo reclamo</span><span>1/5</span></div>
+        <div class="steps"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+        <div style="font-weight:bold">¿Qué querés reportar?</div>
+        <div class="btn">Bache</div><div class="btn">Alumbrado</div><div class="btn">Basural</div><div class="btn">Árbol que requiere poda</div>
+      </div>
+      <div class="cap"><b>4a. Categoría</b></div>
+    </div>
+    <div class="item">
+      <div class="phone sm">
+        <div class="bar"><span>← Nuevo reclamo</span><span>2/5</span></div>
+        <div class="steps"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></div>
+        <div style="font-weight:bold">Fotos (mínimo 1, máximo 3)</div>
+        <div style="display:flex;gap:4px"><div class="ph" style="height:60px;flex:1">Foto 1</div><div class="ph" style="height:60px;flex:1">+</div><div class="ph" style="height:60px;flex:1">+</div></div>
+        <div class="btn">Sacar foto</div><div class="btn">Elegir de la galería</div>
+        <div style="flex:1"></div><div class="btn pri">Siguiente</div>
+      </div>
+      <div class="cap"><b>4b. Fotos</b></div>
+    </div>
+    <div class="item">
+      <div class="phone sm">
+        <div class="bar"><span>← Nuevo reclamo</span><span>3/5</span></div>
+        <div class="steps"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
+        <div style="font-weight:bold">Ubicación</div>
+        <div class="map" style="flex:none;height:120px"><span class="pin" style="left:46%;top:38%">📍</span></div>
+        <div class="label">Ubicación tomada por GPS. Mové el pin si hace falta.</div>
+        <div class="alert">⚠ Ya hay un reclamo de bache a 25 m.<br><span class="btn sm" style="margin-top:4px">Ver y adherir</span> <span class="btn sm">Es otro, continuar</span></div>
+        <div style="flex:1"></div><div class="btn pri">Siguiente</div>
+      </div>
+      <div class="cap"><b>4c. Ubicación</b>Con aviso de reclamo cercano.<div class="nav">"Ver y adherir" → 3</div></div>
+    </div>
+    <div class="item">
+      <div class="phone sm">
+        <div class="bar"><span>← Nuevo reclamo</span><span>4/5</span></div>
+        <div class="steps"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+        <div style="font-weight:bold">Descripción</div>
+        <div class="input" style="height:110px">Contá brevemente el problema…</div>
+        <div style="flex:1"></div><div class="btn pri">Siguiente</div>
+      </div>
+      <div class="cap"><b>4d. Descripción</b></div>
+    </div>
+    <div class="item">
+      <div class="phone sm">
+        <div class="bar"><span>← Nuevo reclamo</span><span>5/5</span></div>
+        <div class="steps"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+        <div style="font-weight:bold">Revisá tu reclamo</div>
+        <div class="label">Categoría: Bache</div>
+        <div class="ph" style="height:50px">Fotos</div>
+        <div class="label">📍 Av. Ortiz de Ocampo y Bolívar</div>
+        <div class="line w80"></div>
+        <div style="flex:1"></div><div class="btn pri">Enviar reclamo</div>
+      </div>
+      <div class="cap"><b>4e. Confirmar</b><div class="nav">→ 6. Detalle de mi reclamo</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 3 -->
+<div class="page">
+  <h2>Vecino (celular), continuación</h2>
+  <div class="row">
+    <div class="item">
+      <div class="phone">
+        <div class="bar"><span>Mis reclamos</span></div>
+        <div class="list-item"><div class="ph thumb">foto</div><div style="flex:1"><div class="label"><b>Bache</b> · 12/03</div><div class="line w80"></div></div><span class="badge">Recibido</span></div>
+        <div class="list-item"><div class="ph thumb">foto</div><div style="flex:1"><div class="label"><b>Alumbrado</b> · 02/03</div><div class="line w60"></div></div><span class="badge">En proceso</span></div>
+        <div class="list-item"><div class="ph thumb">foto</div><div style="flex:1"><div class="label"><b>Basural</b> · 20/02</div><div class="line w80"></div></div><span class="badge">Resuelto</span></div>
+        <div class="list-item"><div class="ph thumb">foto</div><div style="flex:1"><div class="label"><b>Poda</b> · 11/02</div><div class="line w40"></div></div><span class="badge">Anulado</span></div>
+        <div class="tabs"><div>Mapa</div><div class="on">Mis reclamos</div><div>Perfil</div></div>
+      </div>
+      <div class="cap"><b>5. Mis reclamos</b>Reclamos propios con su estado.<div class="nav">→ tocar uno: 6</div></div>
+    </div>
+    <div class="item">
+      <div class="phone">
+        <div class="bar"><span>← Mi reclamo #131</span></div>
+        <div class="ph" style="height:110px">Fotos</div>
+        <div><span class="badge">Bache</span> <span class="badge">Recibido</span></div>
+        <div class="label">📍 Calle Flor del Aire 450</div>
+        <div class="line w80"></div>
+        <div class="label" style="margin-top:4px"><b>Historial</b></div>
+        <div class="tl"><div>Recibido · 12/03 10:41</div></div>
+        <div class="label">3 vecinos adhirieron</div>
+        <div style="flex:1"></div>
+        <div class="btn">Anular reclamo</div>
+        <div class="label" style="text-align:center">Solo disponible mientras está en "Recibido"</div>
+      </div>
+      <div class="cap"><b>6. Detalle de mi reclamo</b>Como la 3, más historial y anulación.<div class="nav">← vuelve a 5</div></div>
+    </div>
+    <div class="item">
+      <div class="phone">
+        <div class="bar"><span>Perfil</span></div>
+        <div style="display:flex;justify-content:center;margin-top:20px"><div class="ph" style="width:80px;height:80px;border-radius:50%">foto</div></div>
+        <div class="label" style="text-align:center"><b>Nombre y apellido</b></div>
+        <div class="label" style="text-align:center">correo@ejemplo.com</div>
+        <div style="flex:1"></div>
+        <div class="btn">Cerrar sesión</div>
+        <div class="tabs"><div>Mapa</div><div>Mis reclamos</div><div class="on">Perfil</div></div>
+      </div>
+      <div class="cap"><b>7. Perfil</b><div class="nav">"Cerrar sesión" → 1</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 4 -->
+<div class="page">
+  <h2>Municipalidad (computadora) — 8. Bandeja del área</h2>
+  <div class="row">
+    <div class="desk">
+      <div class="side"><b>RiojaReporta</b><div class="label">Área: Electromecánica</div><div class="on">Bandeja</div><div>Administración*</div><div style="flex:1"></div><div class="label">* solo administradores</div><div>Cerrar sesión</div></div>
+      <div class="main">
+        <div style="font-weight:bold;font-size:15px">Reclamos del área</div>
+        <div class="filters">Estado: <span class="input">Todos ▾</span> Categoría: <span class="input">Todas ▾</span> Buscar: <span class="input" style="width:200px">dirección…</span></div>
+        <table>
+          <tr><th>#</th><th>Categoría</th><th>Dirección</th><th>Fecha</th><th>Adhesiones ▼</th><th>Estado</th></tr>
+          <tr><td>128</td><td>Alumbrado</td><td>Av. Ortiz de Ocampo y Bolívar</td><td>12/03</td><td>12</td><td><span class="badge">En proceso</span></td></tr>
+          <tr><td>131</td><td>Alumbrado</td><td>Calle Cleofe Arias 300</td><td>12/03</td><td>8</td><td><span class="badge">Recibido</span></td></tr>
+          <tr><td>119</td><td>Alumbrado</td><td>Barrio Ricardo Primero</td><td>09/03</td><td>5</td><td><span class="badge">Recibido</span></td></tr>
+          <tr><td>102</td><td>Alumbrado</td><td>Av. San Francisco 1200</td><td>01/03</td><td>2</td><td><span class="badge">Resuelto</span></td></tr>
+        </table>
+        <div style="flex:1"></div>
+        <div class="label">Ordenada por cantidad de adhesiones. Tocar una fila → 9. Gestión de reclamo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 5 -->
+<div class="page">
+  <h2>Municipalidad (computadora) — 9. Gestión de reclamo</h2>
+  <div class="row">
+    <div class="desk">
+      <div class="side"><b>RiojaReporta</b><div class="label">Área: Electromecánica</div><div class="on">Bandeja</div><div>Administración*</div></div>
+      <div class="main">
+        <div style="font-weight:bold;font-size:15px">← Reclamo #128 · Alumbrado · 12 adhesiones</div>
+        <div class="two">
+          <div class="col" style="flex:1.1">
+            <div class="ph" style="height:180px">Fotos del reclamo</div>
+            <div class="map" style="flex:none;height:170px"><span class="pin" style="left:50%;top:40%">📍</span></div>
+            <div class="label">📍 Av. Ortiz de Ocampo y Bolívar</div>
+          </div>
+          <div class="col" style="flex:1">
+            <div class="label"><b>Descripción del vecino</b></div>
+            <div class="line w80"></div><div class="line w60"></div>
+            <div class="label" style="margin-top:6px"><b>Historial</b></div>
+            <div class="tl"><div>Recibido · 12/03 10:41</div><div>En proceso · 13/03 09:12 · operador J. Pérez · "Se asignó cuadrilla"</div></div>
+            <div class="label" style="margin-top:8px"><b>Cambiar estado</b></div>
+            <div class="input">En proceso ▾ (En proceso / Resuelto / Rechazado)</div>
+            <div class="input" style="height:60px">Observación…</div>
+            <div class="btn pri" style="width:160px">Guardar cambio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 6 -->
+<div class="page">
+  <h2>Municipalidad (computadora) — 10. Administración (solo administradores)</h2>
+  <div class="row">
+    <div class="desk">
+      <div class="side"><b>RiojaReporta</b><div>Bandeja</div><div class="on">Administración</div></div>
+      <div class="main">
+        <div class="chips" style="gap:8px"><span class="chip on" style="font-size:12px;padding:4px 12px">Categorías</span><span class="chip" style="font-size:12px;padding:4px 12px">Áreas</span><span class="chip" style="font-size:12px;padding:4px 12px">Operadores</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center"><b>Categorías</b><span class="btn sm">+ Nueva categoría</span></div>
+        <table>
+          <tr><th>Nombre</th><th>Área que la atiende</th><th>Activa</th><th></th></tr>
+          <tr><td>Bache</td><td>Mantenimiento vial</td><td>Sí</td><td><span class="btn sm">Editar</span> <span class="btn sm">Dar de baja</span></td></tr>
+          <tr><td>Alumbrado</td><td>Dirección General de Electromecánica</td><td>Sí</td><td><span class="btn sm">Editar</span> <span class="btn sm">Dar de baja</span></td></tr>
+          <tr><td>Basural</td><td>Secretaría de Ambiente</td><td>Sí</td><td><span class="btn sm">Editar</span> <span class="btn sm">Dar de baja</span></td></tr>
+          <tr><td>Poda</td><td>Dirección de Arbolado</td><td>Sí</td><td><span class="btn sm">Editar</span> <span class="btn sm">Dar de baja</span></td></tr>
+        </table>
+        <div style="flex:1"></div>
+        <div class="label">Las secciones "Áreas" y "Operadores" siguen el mismo esquema: tabla, alta, edición y baja. Un operador se asigna a una sola área.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
